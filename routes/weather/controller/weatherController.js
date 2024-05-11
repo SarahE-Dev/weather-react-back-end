@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose');
 const Weather = require('../model/Weather')
 
 async function getAllWeatherLocations(req, res){
@@ -10,13 +11,14 @@ async function getAllWeatherLocations(req, res){
 }
 
 async function addLocation(req, res){
-    const {location, country, description, temperature} = req.body
+    const {location, country, description, temperature, icon} = req.body
     try {
         const newWeather = new Weather({
             location,
             country,
             description,
-            temperature
+            temperature,
+            icon
         })
         await newWeather.save()
         res.json({message: 'success', payload: newWeather})

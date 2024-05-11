@@ -13,6 +13,9 @@ const weatherSchema = new mongoose.Schema({
     temperature: {
         type: Number
         
+    },
+    icon: {
+        type: String
     }
 })
 
